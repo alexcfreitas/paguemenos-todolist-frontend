@@ -1,38 +1,241 @@
-.App {
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f5f5;
+  color: #2f4858;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.task-list {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 450px;
+  animation: fadeIn 0.5s ease;
+}
+
+.task-list h1 {
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+  justify-content: space-around;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.task-list h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  animation: slideIn 0.5s ease;
+  transition: transform 0.2s ease;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.task-item.fadeOut {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.task-item.completed .task-title {
+  color: #aaa;
+}
+
+.task-item .task-description {
+  color: #666;
+}
+
+.task-item .completed-description {
+  color: #aaa;
+}
+
+.task-details {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.task-details .task-checkbox {
+  margin-right: 10px;
+  appearance: none;
+  border: 2px solid #ccc;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.task-details .task-checkbox:checked {
+  border-color: #2f4858;
+  background-color: #2f4858;
+  animation: rotateCheck 1s ease;
+}
+
+@keyframes rotateCheck {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.task-details .task-checkbox:checked::before {
+  content: "\2713"; /* Código unicode para o ícone de check */
+  font-size: 28px;
+  font-weight: 400;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.task-title {
+  font-size: 18px;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
+.task-description {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.add-task-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-task-button {
+  background: #f5f5f5;
+  color: #2f4858;
+  padding: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 60px;
+  font-size: 50px;
+  border: none !important;
+}
+
+.add-task-button:hover {
+  animation: rotateCheck 1.5s ease;
+}
+
+@keyframes rotateCheck {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
+  }
+}
+
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.form-group input {
+  padding: 25px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  font-size: 20px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-bottom-color: #2f4858;
+}
+
+@media (max-width: 480px) {
+  .task-list {
+    width: 100%;
+    padding: 10px;
+    box-shadow: none;
+  }
+  .form-group input,
+  .add-task-button {
+    font-size: 16px;
+  }
+}
+
+.task-item .delete-icon {
+  display: none;
+  position: absolute;
+  right: 0;
+  margin-left: 10px;
+  color: #f84545;
+  cursor: pointer;
+  animation: fadeIn 0.9s ease;
+}
+
+.task-item:hover .delete-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

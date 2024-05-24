@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# PagueMenos TodoList
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição do Projeto
 
-## Available Scripts
+Este projeto é uma aplicação de gerenciamento de tarefas (to-do list) desenvolvida usando .NET Core no backend e ReactJS com TypeScript no frontend.
 
-In the project directory, you can run:
+## Requisitos
 
-### `npm start`
+- [Node.js](https://nodejs.org/) (versão 14 ou superior)
+- [.NET SDK](https://dotnet.microsoft.com/download) (versão 8.0.300 ou superior)
+- [Git](https://git-scm.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Clonando o Repositório
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Primeiro, clone os repositórios backend e frontend:
 
-### `npm test`
+bash
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Copy code
 
-### `npm run build`
+`git clone <URL_DO_REPOSITORIO_BACKEND>
+git clone <URL_DO_REPOSITORIO_FRONTEND>`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Substitua `<URL_DO_REPOSITORIO_BACKEND>` e `<URL_DO_REPOSITORIO_FRONTEND>` pelas URLs reais dos repositórios.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Executando o Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Passo 1: Navegue até o Diretório do Backend
 
-### `npm run eject`
+bash
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Copy code
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`cd paguemenos-todolist-backend`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Passo 2: Restaurar Pacotes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+bash
 
-## Learn More
+Copy code
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`dotnet restore`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Passo 3: Executar a Aplicação
+
+bash
+
+Copy code
+
+`dotnet run`
+
+A aplicação backend será executada no endereço `http://localhost:5030`.
+
+## Executando o Frontend
+
+### Passo 1: Navegue até o Diretório do Frontend
+
+bash
+
+Copy code
+
+`cd paguemenos-todolist-frontend`
+
+### Passo 2: Instalar Dependências
+
+bash
+
+Copy code
+
+`npm install`
+
+### Passo 3: Executar a Aplicação
+
+bash
+
+Copy code
+
+`npm start`
+
+A aplicação frontend será executada no endereço `http://localhost:3000`.
+
+## Estrutura do Projeto
+
+### Backend
+
+- Controllers: Define as APIs REST para a aplicação.
+- Services: Contém a lógica de negócios.
+- Entities: Define os modelos de dados.
+- Data: Configurações e contexto do banco de dados.
+
+### Frontend
+
+- components: Contém os componentes React.
+- services: Contém as chamadas para a API backend.
+- domains: Define os tipos e interfaces usados na aplicação.
+- App.tsx: Componente principal da aplicação.
+
+## Notas Adicionais
+
+- Certifique-se de que as portas `5030` (backend) e `3000` (frontend) estão disponíveis em sua máquina.
+- Para qualquer problema ou dúvida, consulte a documentação oficial do [Node.js](https://nodejs.org/), [.NET](https://docs.microsoft.com/dotnet/) e React.
